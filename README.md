@@ -453,6 +453,12 @@ First we need to set a volume, which the docker container and your operating sys
 Next, you hand over a file with environment variables. The toolkit expects some variables, which can be found in `.env.examples`. Just copy the file and adjust it to your needs.
 You can also specify [environment variables](https://docs.docker.com/docker-cloud/getting-started/deploy-app/6_define_environment_variables/) via docker command line option `-e` or `--env`.
 
+Some example for not using a .env file:
+
+```
+docker run -v $(pwd)/data/:/data -it -d -e DB_USER=user -e DB_PASS=123 -e DB_NAME=master -e DATA_DIR=/data -e STORE_HOST=localhost -e STORE_ACCESS_KEY=123 -e STORE_SECRET_KEY=123 -e CHAPTER_DB_API_KEY=123 --name analyzer miiha/thesis-analyzer
+```
+
 Now that the container is running, you can attach to it using: 
 
 ```
@@ -463,12 +469,12 @@ This connects you to the interactive shell where you can use the analyzer comman
 
 ```
 root@4861c0561b89:/usr/src/app# 
-root@4861c0561b89:/usr/src/app# analyzer -project "Rear Window" shots
+root@4861c0561b89:/usr/src/app# analyzer --project "Rear Window" shots
 ```
 
 No install of dependencies required, yey!
 
 Final Note:
 This project is part of my master thesis, which also deals with visualization of film. 
-For a examplary why to visualize the data retrieved with the film analyzer kit please refere to [FilmBrowser](https://github.com/Miiha/FilmBrowser).
+For an examplary way to visualize the data retrieved with the film analyzer kit please refere to [FilmBrowser](https://github.com/Miiha/FilmBrowser).
 
