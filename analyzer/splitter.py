@@ -11,5 +11,5 @@ def split(src, dest):
 		outputs={dest + "/%010d.jpg": '-f image2 -r 25 -vf scale=512:-1'}
 	)
 
-	ff.run(verbose=True)
+	ff.run()
 
