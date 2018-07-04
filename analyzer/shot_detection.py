@@ -157,7 +157,7 @@ def plot(data, title, project, store=False):
 
 def detect(project, threshold, limit=None, local_sequence=False, type=None):
 	src = project.folder_path(Project.Folder.frames)
-	image_paths = glob.glob(src + "/*.jpg")
+	image_paths = sorted(glob.glob(src + "/*.jpg"))
 
 	if limit:
 		image_paths = slice_paths(image_paths, limit)
@@ -397,7 +397,7 @@ def calculate_patio_temporal_slice(base_path, shot):
 
 def keyframe_thumbnails(project):
 	keyframes_path = project.folder_path(Project.Folder.keyframes)
-	keyframe_paths = glob.glob(keyframes_path + "/*.jpg")
+	keyframe_paths = sorted(glob.glob(keyframes_path + "/*.jpg"))
 
 	if len(keyframe_paths) == 0:
 		return None
@@ -415,7 +415,7 @@ def keyframe_thumbnails(project):
 
 def keyframe_thumbnail_size(project):
 	path = project.file_path(Project.Folder.keyframe_thumbnails)
-	keyframe_thumbnails_path = glob.glob(path + "/*.jpg")
+	keyframe_thumbnails_path = sorted(glob.glob(path + "/*.jpg"))
 
 	if len(keyframe_thumbnails_path) == 0:
 		return None
@@ -434,7 +434,7 @@ KEYFRAME_MONTAGE_COLUMNS = 10
 
 def keyframe_montage(project):
 	keyframes_path = project.folder_path(Project.Folder.keyframes)
-	keyframe_paths = glob.glob(keyframes_path + "/*.jpg")
+	keyframe_paths = sorted(glob.glob(keyframes_path + "/*.jpg"))
 
 	if len(keyframe_paths) == 0:
 		return None
@@ -458,7 +458,7 @@ def montage_keyframe_size(project):
 		return None
 
 	keyframes_path = project.folder_path(Project.Folder.keyframes)
-	keyframe_paths = glob.glob(keyframes_path + "/*.jpg")
+	keyframe_paths = sorted(glob.glob(keyframes_path + "/*.jpg"))
 
 	if len(keyframe_paths) == 0:
 		return None
@@ -473,7 +473,7 @@ def montage_keyframe_size(project):
 
 def keyframe_size(project):
 	keyframes_path = project.folder_path(Project.Folder.keyframes)
-	keyframe_paths = glob.glob(keyframes_path + "/*.jpg")
+	keyframe_paths = sorted(glob.glob(keyframes_path + "/*.jpg"))
 
 	if len(keyframe_paths) == 0:
 		return None

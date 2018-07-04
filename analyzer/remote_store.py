@@ -55,7 +55,7 @@ def upload_slices(project):
 def upload_images(source_path, destination_path):
 	bucket = connect_bucket()
 
-	image_paths = glob.glob(join(source_path, "*.jpg"))
+	image_paths = sorted(glob.glob(join(source_path, "*.jpg")))
 	for path in image_paths:
 		remote_path = join(destination_path, filename(path))
 

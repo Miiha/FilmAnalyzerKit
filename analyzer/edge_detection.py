@@ -129,7 +129,7 @@ def calculate_image_registration(project, im1, im2, i):
 
 def edge_detect(project, threshold, limit=None, image_registration=False, local_sequence=False):
 	src = project.folder_path(Project.Folder.frames)
-	image_paths = glob.glob(src + "/*.jpg")
+	image_paths = sorted(glob.glob(src + "/*.jpg"))
 
 	if limit:
 		image_paths = slice_paths(image_paths, limit)

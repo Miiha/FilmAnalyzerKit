@@ -61,7 +61,7 @@ class Uploader(object):
 		self.upload_images(source_path, remote_path)
 
 	def upload_images(self, source_path, destination_path):
-		image_paths = glob.glob(join(source_path, "*.jpg"))
+		image_paths = sorted(glob.glob(join(source_path, "*.jpg")))
 
 		progress_bar = tqdm(total=len(image_paths), desc="upload")
 		for path in image_paths:
