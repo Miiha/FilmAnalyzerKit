@@ -1,7 +1,7 @@
-from os.path import join
-
 from matplotlib import pyplot as plt
+plt.switch_backend('agg')
 
+from os.path import join
 
 def plot(title, datum, scatter=None, project=None, store=False, xlim=None, ylim=None):
 	plt.figure("Results {}".format(title))
@@ -22,7 +22,7 @@ def plot(title, datum, scatter=None, project=None, store=False, xlim=None, ylim=
 		plt.show()
 	else:
 		base_path = project.folder_path("plots")
-		path = join(base_path, "{}.jpg".format(title))
+		path = join(base_path, "{}.png".format(title))
 		plt.savefig(path)
 
 	plt.clf()
